@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)https://proproprogs.ru/c_base/c_ukazateli-privedenie-tipov-konstanta-null -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<!--<base href="https://proproprogs.ru/">--><base href=".">
+	<title>#27. Указатели. Приведение типов. Константа NULL | Язык C для начинающих</title>
+	<meta name="yandex-verification" content="dc612d99275111ce">
+	<meta name="google-site-verification" content="dBeU07wRdu1RPn01tUx7i7POaYp6QVgQiuCLHWLHudM">
+	
+	<link rel="shortcut icon" href="https://proproprogs.ru/images/main.ico" type="image/x-icon">
+	<script async="" src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/tag.js"></script><script type="text/javascript" src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/jquery-1.9.0.min.js"></script>
+	<link rel="stylesheet" href="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/fonts.css">
+	<link type="text/css" href="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/styles.css" rel="stylesheet">
+	<link type="text/css" href="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/video.css" rel="stylesheet">
+	<meta name="description" content="Указатели для работы с разными типами данных. Присваивание адресов между указателями. Приведение типов между указателями. Предопределенная константа NULL.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="zoom: 1;">
+<script>
+function onShowMobileMenu() {
+	let m = $('#topmenu-toggle');
+	if( m.is(":visible") ) m.hide();
+	else m.show();
+}
+</script>
+
+<table class="table-page" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td valign="top">
+		<div class="header">
+			<ul class="mainmenu-mobile">
+			<li class="logo"><a href="https://proproprogs.ru/index.php"><div class="logo"></div></a></li>
+			<li class="last"><a href="JavaScript:onShowMobileMenu()"><div class="mobile-menu-img"></div></a></li>
+			</ul>
+
+			<ul id="mainmenu" class="mainmenu">
+			<li class="logo"><a href="https://proproprogs.ru/index.php"><div class="logo"></div></a></li>
+			<li><a href="https://proproprogs.ru/python">Python</a></li><li><a href="https://proproprogs.ru/js">JavaScript</a></li><li><a href="https://proproprogs.ru/java">Java</a></li><li><a href="https://proproprogs.ru/c_lang">C/C++</a></li><li><a href="https://proproprogs.ru/data">Искусственный интеллект</a></li><li><a href="https://proproprogs.ru/else">Еще</a></li>
+			<li class="last"><a href="mailto:sc_lib@list.ru">sc_lib@list.ru</a></li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="topmenu-toggle" id="topmenu-toggle">
+			<ul class="mobile-list">
+			<li><a href="https://proproprogs.ru/#">Обучающие курсы</a></li>
+				<ul class="mobile-list-expand">
+				<li><a href="https://stepik.org/course/100707" target="_blank">Python</a></li>
+				<li><a href="https://stepik.org/a/116336" target="_blank">Python ООП</a></li>
+				<li><a href="https://stepik.org/a/183363" target="_blank">Django</a></li>
+				<li><a href="https://stepik.org/course/193691" target="_blank">C/C++</a></li>
+				<li><a href="https://stepik.org/a/205781" target="_blank">ООП C++</a></li>
+				<li><a href="https://stepik.org/course/209247/" target="_blank">Машинное обучение</a></li>
+				<li><a href="https://stepik.org/a/227582" target="_blank">Нейронные сети</a></li>
+				<li><a href="https://stepik.org/a/134212" target="_blank">Структуры данных</a></li>
+        			</ul>
+				<li><a href="https://proproprogs.ru/python">Python</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/python_base">Основы Python</a></li><li><a href="https://proproprogs.ru/python_oop">Python ООП</a></li><li><a href="https://proproprogs.ru/wxpython">wxPython</a></li><li><a href="https://proproprogs.ru/modules">Модули</a></li><li><a href="https://proproprogs.ru/flask">Flask</a></li><li><a href="https://proproprogs.ru/django">Django</a></li><li><a href="https://proproprogs.ru/django4">Django 4</a></li></ul><li><a href="https://proproprogs.ru/js">JavaScript</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/javascript">Основы JavaScript</a></li><li><a href="https://proproprogs.ru/javascript_dom">JavaScript DOM</a></li><li><a href="https://proproprogs.ru/javascript_oop">JavaScript ООП</a></li></ul><li><a href="https://proproprogs.ru/java">Java</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/java_base">Основы Java</a></li><li><a href="https://proproprogs.ru/java_oop">Java ООП</a></li></ul><li><a href="https://proproprogs.ru/c_lang">C/C++</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/c_base">Язык C/C++</a></li><li><a href="https://proproprogs.ru/cpp_oop">ООП C/C++</a></li></ul><li><a href="https://proproprogs.ru/data">Искусственный интеллект</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/neural_network">Нейронные сети</a></li><li><a href="https://proproprogs.ru/fractals">Фракталы</a></li><li><a href="https://proproprogs.ru/ga">Генетические алгоритмы</a></li><li><a href="https://proproprogs.ru/nn_pytorch">Нейросети на PyTorch</a></li><li><a href="https://proproprogs.ru/ml">ML</a></li></ul><li><a href="https://proproprogs.ru/else">Еще</a></li><ul class="mobile-list-expand"><li><a href="https://proproprogs.ru/dsp">ЦОС</a></li><li><a href="https://proproprogs.ru/structure_data">Структуры данных</a></li></ul>
+			</ul>
+		</div>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(61572289, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/61572289" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<table class="table-content" border="0" cellpadding="0" cellspacing="0">
+<tbody><tr><td valign="top" class="left-chapters">
+	<ul id="leftchapters">
+	<li>Операторы циклов. Указатели</li>
+	<li><a href="https://proproprogs.ru/c_base/c_operator-cikla-while">Оператор цикла while</a></li><li><a href="https://proproprogs.ru/c_base/c_operator-cikla-for">Оператор цикла for</a></li><li><a href="https://proproprogs.ru/c_base/c_cikl-do-while-s-postusloviem-vlozhennye-cikly">Цикл do-while с постусловием. Вложенные циклы</a></li><li><a href="https://proproprogs.ru/c_base/c_operatory-break-continue-i-goto">Операторы break, continue и goto</a></li><li><a href="https://proproprogs.ru/c_base/c_ukazateli-proshche-prostogo">Указатели. Проще простого</a></li><li class="selected">Указатели. Приведение типов. Константа NULL</li><li><a href="https://proproprogs.ru/c_base/c_dolgozhdannaya-adresnaya-arifmetika">Долгожданная адресная арифметика</a></li>
+	<li class="share">
+	<p>Обучающие курсы</p>
+	<a class="share-lnk" href="https://stepik.org/course/100707" target="_blank">Python</a>
+	<a class="share-lnk" href="https://stepik.org/a/116336" target="_blank">Python ООП</a>
+	<a class="share-lnk" href="https://stepik.org/a/183363" target="_blank">Django</a>
+	<a class="share-lnk" href="https://stepik.org/course/193691" target="_blank">C/C++</a>
+	<a class="share-lnk" href="https://stepik.org/a/205781" target="_blank">ООП C++</a>
+	<a class="share-lnk" href="https://stepik.org/course/209247/" target="_blank">Машинное обучение</a>
+	<a class="share-lnk" href="https://stepik.org/a/227582" target="_blank">Нейронные сети</a>
+	<a class="share-lnk" href="https://stepik.org/a/134212" target="_blank">Структуры данных</a>
+
+	<p>Телеграм-каналы</p>
+	<a class="share-lnk" href="https://t.me/selfedu_rus">Канал selfedu_rus</a>
+	<a class="share-lnk" href="https://t.me/python_selfedu">Python</a>
+	<a class="share-lnk" href="https://t.me/django_selfedu">Django</a>
+	<a class="share-lnk" href="https://t.me/machine_learning_selfedu">Машинное обучение</a>
+	<a class="share-lnk" href="https://t.me/java_and_c">Java и С++</a>
+<!--
+	<a class="share-vk" href="https://vk.com/share.php?url=https://proproprogs.ru/c_base/c_ukazateli-privedenie-tipov-konstanta-null" target="_blank" rel="nofollow"></a>
+	<a class="share-tw" href="https://twitter.com/intent/tweet?url=https://proproprogs.ru/c_base/c_ukazateli-privedenie-tipov-konstanta-null" target="_blank" rel="nofollow"></a>
+-->
+	<p>Наши каналы</p>
+	<a class="share-yt" href="https://www.youtube.com/channel/UClJzWfGWuGJL2t-3dYKcHTA/playlists" target="_blank" rel="nofollow"></a>
+        <br>
+	<a class="share-rt" href="https://rutube.ru/channel/43304831/" target="_blank" rel="nofollow"></a>
+	</li>
+	</ul>
+</td><td valign="top" class="content">
+	<ul class="breadcrumbs">
+	<li><a href="https://proproprogs.ru/index.php">Главная</a></li>
+	<li><a href="https://proproprogs.ru/c_base">Язык C/C++</a></li>
+	<li class="last">Операторы циклов. Указатели</li>
+	</ul>
+
+	<div class="content-text"><h1>Указатели. Приведение типов. Константа NULL</h1>
+
+  	<div class="container"><p style="border-left: 2px solid #CC0000; padding: 0 0 0 5px;">Практический курс по C/C++: <a rel="noffolow" target="_blank" href="https://stepik.org/course/193691">https://stepik.org/course/193691</a>
+</p><div class="video_button">
+<div class="title">Смотреть материал на 
+	<a href="https://www.youtube.com/watch?v=qFAznyh-Gx4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank" rel="nofollow">
+	YouTube
+	</a>
+ | 
+	<a href="https://rutube.ru/video/02a7027f3dfdf73f1980618777280068/?playlist=539096" target="_blank" rel="nofollow">
+	RuTube
+	</a>
+</div>
+</div>
+
+
+<p>На предыдущем занятии мы с вами узнали следующее:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">char</span> d <span style="color: #339933;">=</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">;</span> 
+<span style="color: #993333;">char</span> <span style="color: #339933;">*</span>gpt<span style="color: #339933;">;</span>&nbsp;&nbsp; <span style="color: #666666; font-style: italic;">// объявление указателя для работы с данными типа char</span>
+gpt <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>d<span style="color: #339933;">;</span>&nbsp;&nbsp; <span style="color: #666666; font-style: italic;">// взятие адреса переменной d и присваивание его указателю gpt</span>
+<span style="color: #993333;">char</span> x <span style="color: #339933;">=</span> <span style="color: #339933;">*</span>gpt<span style="color: #339933;">;</span> <span style="color: #666666; font-style: italic;">// получение значения по адресу переменной d</span>
+<span style="color: #339933;">*</span>gpt <span style="color: #339933;">=</span> <span style="color: #0000dd;">100</span><span style="color: #339933;">;</span>&nbsp; <span style="color: #666666; font-style: italic;">// запись значения в ячейку, где расположена переменная d</span></pre></div></div>
+
+<p>Сам же указатель
+на уровне машинных кодов – это обычное хранилище целочисленного значения
+(адреса ячейки памяти), который, как правило, занимает:
+
+</p><ul>
+<li>
+4
+байта – для 32-х разрядных систем;
+
+</li><li>
+8
+байтов – для 64-х разрядных систем.
+</li></ul>
+
+<p>И для полноты
+картины отмечу, что мы можем в одном операторе объявить сразу несколько
+указателей одного и того же типа. Например:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">short</span> <span style="color: #339933;">*</span>a<span style="color: #339933;">,</span> <span style="color: #339933;">*</span> b<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>c<span style="color: #339933;">;</span>&nbsp; <span style="color: #666666; font-style: italic;">// три указателя</span></pre></div></div>
+
+<p>Обратите
+внимание, перед каждым именем должен стоять символ *. Только тогда мы получим
+объявление трех указателей. Иногда начинающие программисты пишут объявление
+так:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">short</span> <span style="color: #339933;">*</span>a<span style="color: #339933;">,</span> b<span style="color: #339933;">,</span> c<span style="color: #339933;">;</span>&nbsp; <span style="color: #666666; font-style: italic;">// указатель a и переменные b, c</span></pre></div></div>
+
+<p>В этом случае
+только a будет
+указателем, а b и c – обычными
+байтовыми переменными. Запомните, звездочку нужно прописывать перед каждым
+именем, если мы хотим получить три указателя.
+
+</p><h2>Присваивание указателей. Приведение типов указателей</h2>
+
+<p>Давайте
+представим, что у нас в программе объявлено два указателя и только один из них указывает
+на переменную arg:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">7</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr_arg<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr_arg <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>Как сделать так,
+чтобы и второй указатель ptr тоже ссылался на
+эту же переменную arg. В данном конкретном случае можно поступить двумя
+способами. В первом также взять адрес переменной и присвоить второму указателю:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">ptr <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span></pre></div></div>
+
+<p>А во втором,
+присвоить одному указателю значение другого:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">ptr <span style="color: #339933;">=</span> ptr_arg<span style="color: #339933;">;</span></pre></div></div>
+
+<p>Так тоже можно
+делать, так как указатели в основе своей – это обычные целочисленные хранилища
+адресов. Поэтому мы можем адрес из одного указателя присвоить другому
+указателю, используя уже знакомую нам операцию присваивания. В результате оба
+указателя будут ссылаться на одну и ту же переменную arg. И в этом легко
+убедиться:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">7</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr_arg<span style="color: #339933;">,</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr_arg <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr <span style="color: #339933;">=</span> ptr_arg<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">(</span><span style="color: #ff0000;">"*ptr = %d, arg = %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">,</span> arg<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #339933;">*</span>ptr_arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">100</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">(</span><span style="color: #ff0000;">"*ptr = %d, arg = %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">,</span> arg<span style="color: #009900;">)</span><span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>Мы читаем
+значение переменной arg с помощью указателя ptr, а меняем с
+помощью указателя ptr_arg. После запуска программы видим
+следующие строчки:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">7</span><span style="color: #339933;">,</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">7</span>
+<span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">100</span><span style="color: #339933;">,</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">100</span></pre></div></div>
+
+<p>Все
+действительно работает, так как оба указателя ссылаются на один и тот же адрес
+в памяти, где хранится переменная arg.
+
+</p><p>Давайте теперь
+немного модифицируем программу и у второго указателя ptr поменяем тип
+данных с int на char:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">777</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr_arg<span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">char</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr_arg <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ptr <span style="color: #339933;">=</span> ptr_arg<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>При компиляции
+увидим предупреждение, что мы пытаемся присваивать разные несовместимые типы, с
+которыми работают указатели:
+
+</p><p>assignment
+to 'char *' from incompatible pointer type 'int *'
+
+</p><p>Хотя, при этом,
+программа выполнится без ошибок и адрес будет присвоен. Это предупреждение
+компилятор выдает исключительно программисту, чтобы избежать возможных ошибок
+при работе с ячейками памяти через указатели ptr и ptr_arg. И вы уже
+знаете, какие проблемы могут возникнуть. Так как ptr – это байтовый
+указатель, то команда:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span></pre></div></div>
+
+<p>запишет значение
+1 только в одну ячейку памяти, на которую ссылается ptr. Тогда как
+команда:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">int</span> x <span style="color: #339933;">=</span> <span style="color: #339933;">*</span>ptr_arg<span style="color: #339933;">;</span></pre></div></div>
+
+<p>прочитает четыре
+байта из памяти и из них будет сформировано целое число типа int. Поэтому при
+выводе результата:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+<a href="http://www.opengroup.org/onlinepubs/009695399/functions/printf.html"><span style="color: #000066;">printf</span></a><span style="color: #009900;">(</span><span style="color: #ff0000;">"*ptr_arg = %d, arg = %d<span style="color: #000099; font-weight: bold;">\n</span>"</span><span style="color: #339933;">,</span> <span style="color: #339933;">*</span>ptr_arg<span style="color: #339933;">,</span> arg<span style="color: #009900;">)</span><span style="color: #339933;">;</span></pre></div></div>
+
+<p>первоначальное
+значение 777 будет изменено на значение 769, а не на 1. И все из-за разницы
+типов данных, с которыми работают указатели. Именно поэтому компилятор и выдает
+в таких случаях предупреждения.
+
+</p><p>Однако бывают (и
+не редко) ситуации, когда действительно в программе нужно указателю одного типа
+данных присвоить значение указателя, работающего с другим типом данных. В этом
+случае следует явно прописать операцию приведения типов для указателей.
+Делается это следующим образом:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">ptr <span style="color: #339933;">=</span> <span style="color: #009900;">(</span><span style="color: #993333;">char</span> <span style="color: #339933;">*</span><span style="color: #009900;">)</span>ptr_arg<span style="color: #339933;">;</span></pre></div></div>
+
+<p>То есть,
+прописываются круглые скобки и в них указывается тот тип указателя, к которому
+он приводится. Тогда компилятор «поймет», что программист сознательно делает
+такую операцию и не выдает никаких предупреждений. Программа, разумеется, будет
+работать без каких-либо изменений.
+
+</p><p>Приведение типов
+для указателей следует прописывать всегда, когда типы различаются, кроме одного
+случая, когда указатель объявлен с обобщенным типом void:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">void</span> <span style="color: #339933;">*</span>p<span style="color: #339933;">;</span></pre></div></div>
+
+<p>Тогда мы можем
+совершенно свободно ему присваивать адреса любых других указателей:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">p <span style="color: #339933;">=</span> ptr<span style="color: #339933;">;</span></pre></div></div>
+
+<p>И, наоборот, его
+присваивать любым другим:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">ptr_arg <span style="color: #339933;">=</span> p<span style="color: #339933;">;</span></pre></div></div>
+
+<p>Компилятор в
+этих случаях не будет выдавать никаких предупреждений. Фактически, этот тип void* введен в язык
+Си исключительно для хранения адресов и их последующего присваивания другим
+указателям. При этом сам указатель с типом void* нельзя
+использовать для работы с ячейками памяти. Следующие команды приведут к ошибкам
+на этапе компиляции:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">*</span>p <span style="color: #339933;">=</span> <span style="color: #0000dd;">10</span><span style="color: #339933;">;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #666666; font-style: italic;">// тип void* не позволяет заносить данные</span>
+<span style="color: #993333;">int</span> x <span style="color: #339933;">=</span> <span style="color: #339933;">*</span>p<span style="color: #339933;">;</span>&nbsp;&nbsp; <span style="color: #666666; font-style: italic;">// тип void* не позволяет читать данные</span></pre></div></div>
+
+<p>И это не
+случайно, так как тип void не определяет какой-либо конкретный
+формат данных. Поэтому как, например, интерпретировать число 10 при записи в
+ячейки, совершенно непонятно.
+
+</p><h2>Проблемы, сокрытые в указателях</h2>
+
+<p>Как видите,
+указатели совсем не такие страшные и ужасные, как о них порой говорят. Может
+даже наоборот показаться, что они простые, понятные, белые и пушистые. Но не
+спешите с выводами. Временами они бывают коварными, непредсказуемыми и даже губительными.
+Как правило, это происходит в моменты, когда от них такого совсем не ждешь. И
+связано это, в основном, с двумя распространенными ситуациями:
+
+</p><ul>
+<li>
+указатель
+ссылается на произвольную (не выделенную) область памяти и в нее происходит
+запись некоторого значения;
+
+</li><li>
+в
+программе динамически выделяется память (с помощью функции malloc), но не
+освобождается (утечка памяти).
+</li></ul>
+
+<p>Про вторую
+ситуацию мы с вами еще подробно будем говорить, когда речь пойдет о
+динамическом выделении памяти и работе с функциями malloc() и free(). Сейчас
+сосредоточимся на первом пункте. О чем он говорит? Я, думаю, вы все уже поняли.
+Пусть у нас в программе объявляется некоторый указатель, а затем, используется
+следующим образом:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr<span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>Такая программа
+скомпилируется и запустится. Но, очень вероятно, что завершится с ошибкой. В
+данном случае, мы видим код завершения отличный от нуля:
+
+</p><p>exited
+with code=3221225477 in 0.73 seconds
+
+</p><p>Почему так произошло? Очевидно, мы
+пытаемся записать число 1 в некоторую область памяти, которая может быть
+отведена под какие-то другие задачи. Нельзя вот так запросто, куда угодно
+что-либо записывать. Сначала нужно запросить у операционной системы свободную область
+памяти, сказать, что мы ее будем использовать для нужд программы, а уже потом
+записывать туда данные. Только так. Никак иначе. И этот процесс запроса памяти
+называется в программировании <b>выделением памяти</b>. Кусок памяти выделяется
+операционной системой и в нее другие программы уже ничего не могут заносить.
+Она только наша. Пока не будет освобождена. Конечно, при завершении программы,
+вся выделенная память автоматически освобождается.
+
+</p><p>Так вот, когда
+мы объявляем ту или иную переменную, то как раз автоматически запускается этот
+процесс выделения памяти. Поэтому в ячейки, занятые переменной, мы совершенно
+спокойно можем что-либо записывать и считывать:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>В этом случае
+программа выполнится без ошибок и завершится с кодом 0.
+
+</p><h2>Константа NULL</h2>
+
+<p>Но все же, очень
+часто бывают ситуации, когда в нашем распоряжении имеется некий указатель и нам
+бы хотелось знать: указывает ли он на выделенную область, с которой можно
+работать, или на произвольную, то есть, указатель не был инициализирован? К
+сожалению, в языке Си нет встроенного механизма, который бы позволял
+гарантированно отвечать на этот вопрос. Но один прием довольно часто
+используется на практике. Ничто не мешаем нам договориться, если указатель
+принимает некоторое строго предопределенное значение, значит, он еще не был
+инициализирован. А иначе, ссылается на выделенную область памяти. Что может
+здесь выступать в качестве предопределенного значения? В языке Си для этого
+используется специальная константа NULL, определенная с
+помощью директивы define в заголовочном файле stdio.h:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span></pre></div></div>
+
+<p>Для разных ОС
+макрос NULL может принимать
+разные значения. В моем случае – это нулевой указатель, заданный в виде:
+
+</p><p>#define NULL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ((void *)0)
+
+</p><p>То есть,
+фактически, мы присваиваем указателю нулевой адрес, который будет означать, что
+он пока не ссылается на выделенную область и записывать данные в эти ячейки не
+нужно. Проверку этого условия можно записать так:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;"><span style="color: #339933;">#include &lt;stdio.h&gt;</span>
+&nbsp;
+<span style="color: #993333;">int</span> main<span style="color: #009900;">(</span><span style="color: #993333;">void</span><span style="color: #009900;">)</span> 
+<span style="color: #009900;">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> arg <span style="color: #339933;">=</span> <span style="color: #0000dd;">5</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #993333;">int</span> <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> NULL<span style="color: #339933;">;</span>
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">if</span><span style="color: #009900;">(</span>ptr <span style="color: #339933;">!=</span> NULL<span style="color: #009900;">)</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #339933;">*</span>ptr <span style="color: #339933;">=</span> <span style="color: #0000dd;">1</span><span style="color: #339933;">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span style="color: #b1b100;">return</span> <span style="color: #0000dd;">0</span><span style="color: #339933;">;</span>
+<span style="color: #009900;">}</span></pre></div></div>
+
+<p>После запуска
+программа выполнится и завершится без ошибок. При этом команда «*ptr = 1;» выполнена
+не будет. Если же изменить значение указателя:
+
+</p><div class="highlight"><div class="block"><pre class="c" style="font-family:monospace;">ptr <span style="color: #339933;">=</span> <span style="color: #339933;">&amp;</span>arg<span style="color: #339933;">;</span></pre></div></div>
+
+<p>то условие
+станет истинным и значение переменной arg будет изменено на единицу.
+
+</p><p>Вот так с
+помощью предопределенной константы NULL можно
+контролировать значение указателя на выделенную область памяти. Хотя, конечно,
+этот прием не дает гарантии. Вполне может возникнуть ситуация, когда указатель
+не будет равен NULL и при этом ссылаться на невыделенную область. Но
+это уже ложится на плечи программиста. Именно мы должны так продумывать логику
+работы программы, чтобы указатели всегда гарантированно содержали нужные нам
+адреса.
+</p><p style="border-left: 2px solid #CC0000; padding: 0 0 0 5px;">Практический курс по C/C++: <a rel="noffolow" target="_blank" href="https://stepik.org/course/193691">https://stepik.org/course/193691</a>
+</p><div class="video_container">
+	<h3 class="video_title">Видео по теме</h3>
+	<div class="video_list">
+		<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=d971m08_5Zo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default.jpg"></div>
+	<p class="video_item_title">Язык Си. Рождение легенды</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=8QiqrL_WHD4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(1).jpg"></div>
+	<p class="video_item_title">#1. Этапы трансляции программы в машинный код. Стандарты</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=TGpYh9X1PYk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(2).jpg"></div>
+	<p class="video_item_title">#2. Установка компилятора gcc и Visual Studio Code на ОС Windows</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=TgjwJJ4IZQE&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(3).jpg"></div>
+	<p class="video_item_title">#3. Структура и понимание работы программы "Hello, World!"</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ymxXtJIdeUc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(4).jpg"></div>
+	<p class="video_item_title">#4. Двоичная, шестнадцатеричная и восьмеричная системы счисления</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=tSOksGcGJCI&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(5).jpg"></div>
+	<p class="video_item_title">#5. Переменные и их базовые типы. Модификаторы unsigned и signed</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=e9CVbaW9kSc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(6).jpg"></div>
+	<p class="video_item_title">#6. Операция присваивания. Числовые и символьные литералы. Операция sizeof</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=bT5m4Zt1Xn0&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(7).jpg"></div>
+	<p class="video_item_title">#7. Стандартные потоки ввода/вывода. Функции putchar() и getchar()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=sbdBgONbu88&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(8).jpg"></div>
+	<p class="video_item_title">#8. Функция printf() для форматированного вывода</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=jhCddpQ40yw&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(9).jpg"></div>
+	<p class="video_item_title">#9. Функция scanf() для форматированного ввода</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=DjEPQw-Nxqo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(10).jpg"></div>
+	<p class="video_item_title">#10. Арифметические операции: сложение, вычитание, умножение и деление</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=x7HeGJowsW8&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(11).jpg"></div>
+	<p class="video_item_title">#11. Арифметические операции деления по модулю, инкремента и декремента</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=RAKwrjVXRbc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(12).jpg"></div>
+	<p class="video_item_title">#12. Арифметические операции +=,  -=, *=, /=, %=</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=E1MkdKL6HL8&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(13).jpg"></div>
+	<p class="video_item_title">#13. Булевый тип. Операции сравнения. Логические И, ИЛИ, НЕ</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=7VZQbuCYPn8&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(14).jpg"></div>
+	<p class="video_item_title">#14. Условный оператор if. Конструкция if-else</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=_RztW4dtW9w&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(15).jpg"></div>
+	<p class="video_item_title">#15. Условное тернарное выражение</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=06R8zAbuUkE&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(16).jpg"></div>
+	<p class="video_item_title">#16. Оператор switch множественного выбора. Ключевое слово break</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=KYQ06DNnmy8&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(17).jpg"></div>
+	<p class="video_item_title">#17. Битовые операции И, ИЛИ, НЕ, XOR. Сдвиговые операции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ewVeA0XzI8g&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(18).jpg"></div>
+	<p class="video_item_title">#18. Генерация псевдослучайных чисел. Функции математической библиотеки</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=J1JnOn0bdc4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(19).jpg"></div>
+	<p class="video_item_title">#19. Директивы макропроцессора #define и #undef</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=d3E1rmOPymo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(20).jpg"></div>
+	<p class="video_item_title">#20. Директива #define для определения макросов-функций. Операции # и ##</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=GGl4mS5nUGg&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(21).jpg"></div>
+	<p class="video_item_title">#21. Директивы #include и условной компиляции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=_xBLgSOGnU0&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(22).jpg"></div>
+	<p class="video_item_title">#22. Оператор цикла while</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Uq0VSGpqdDA&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(23).jpg"></div>
+	<p class="video_item_title">#23. Оператор цикла for</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=68F38UOJs1w&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(24).jpg"></div>
+	<p class="video_item_title">#24. Цикл do-while с постусловием. Вложенные циклы</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=E_yEgucuFyw&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(25).jpg"></div>
+	<p class="video_item_title">#25. Операторы break, continue и goto</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=LORkeB_5MGM&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(26).jpg"></div>
+	<p class="video_item_title">#26. Указатели. Проще простого</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=qFAznyh-Gx4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(27).jpg"></div>
+	<p class="video_item_title">#27. Указатели. Приведение типов. Константа NULL</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=nd2BW4cnbjY&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(28).jpg"></div>
+	<p class="video_item_title">#28. Долгожданная адресная арифметика</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=f7gARd3t2sg&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(29).jpg"></div>
+	<p class="video_item_title">#29. Введение в массивы</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=6qlV7bCZBdE&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(30).jpg"></div>
+	<p class="video_item_title">#30. Вычисление размера массива. Инициализация массивов</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=qPspc2X4lOY&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(31).jpg"></div>
+	<p class="video_item_title">#31. Указатели на массивы</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=GGqgoNg2lBs&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(32).jpg"></div>
+	<p class="video_item_title">#32. Ключевое слово const с указателями и переменными</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=64A8w3p-L78&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(33).jpg"></div>
+	<p class="video_item_title">#33. Операции с массивами копирование, вставка, удаление и сортировка</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=xyI7bMqfZNo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(34).jpg"></div>
+	<p class="video_item_title">#34. Двумерные и многомерные массивы. Указатели на двумерные массивы</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=whRGTUExD9E&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(35).jpg"></div>
+	<p class="video_item_title">#35. Строки. Способы объявления, escape-последовательности</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=G7bbL0TWbz8&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(36).jpg"></div>
+	<p class="video_item_title">#36. Ввод/вывод строк в стандартные потоки</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Nk3Jary7ji0&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(37).jpg"></div>
+	<p class="video_item_title">#37. Строковые функции strlen(), strcpy(), strncpy(), strcat(), strncat()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ILJWkCfvvjc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(38).jpg"></div>
+	<p class="video_item_title">#38. Строковые функции сравнения, поиска символов и фрагментов</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Ej-EMdWOy74&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(39).jpg"></div>
+	<p class="video_item_title">#39. Строковые функции sprintf(), atoi(), atol(), atoll() и atof()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=nlVj5rOtLVw&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(40).jpg"></div>
+	<p class="video_item_title">#40. Объявление и вызов функций</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=63eFhyLVTBk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(41).jpg"></div>
+	<p class="video_item_title">#41. Оператор return. Вызов функций в аргументах</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=PL3cPFvQNUk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(42).jpg"></div>
+	<p class="video_item_title">#42. Прототипы функций</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=D3K70nL1K_E&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(43).jpg"></div>
+	<p class="video_item_title">#43. Указатели как параметры. Передача массивов в функции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=_st6VD2v4Fc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(44).jpg"></div>
+	<p class="video_item_title">#44. Указатели на функцию. Функция как параметр (callback)</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=F0xlilZzwCs&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(45).jpg"></div>
+	<p class="video_item_title">#45. Стековый фрейм. Автоматические переменные</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=GyMBhLnCE70&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(46).jpg"></div>
+	<p class="video_item_title">#46. Рекурсивные функции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=voqUcOHeESM&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(47).jpg"></div>
+	<p class="video_item_title">#47. Функции с произвольным числом параметров</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=0TeKFgaYDWg&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(48).jpg"></div>
+	<p class="video_item_title">#48. Локальные и глобальные переменные</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=PV903MfZ4_M&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(49).jpg"></div>
+	<p class="video_item_title">#49. Локальные во вложенных блоках</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=18ycGTrljXk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(50).jpg"></div>
+	<p class="video_item_title">#50. Ключевые слова static и extern</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ihIJRxgcRQ0&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(51).jpg"></div>
+	<p class="video_item_title">#51. Функции malloc(), free(), calloc(), realloc(), memcpy() и memmove()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=lnXZSkCbD5s&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(52).jpg"></div>
+	<p class="video_item_title">#52. Перечисления (enum). Директива typedef</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=yRSBSmxw2l4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(53).jpg"></div>
+	<p class="video_item_title">#53. Структуры. Вложенные структуры</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=yWmFfpPz2A4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(54).jpg"></div>
+	<p class="video_item_title">#54. Указатели на структуры. Передача структур в функции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=FGmb9l1PrME&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(55).jpg"></div>
+	<p class="video_item_title">#55. Реализация стека (пример использования структур)</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=cmQKr4et8uE&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(56).jpg"></div>
+	<p class="video_item_title">#56. Объединения (union). Битовые поля</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=eh0dpF_hCmI&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(57).jpg"></div>
+	<p class="video_item_title">#57. Файловые функции: fopen(), fclose(), fgetc(), fputc()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=9iFKX65NrC4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(58).jpg"></div>
+	<p class="video_item_title">#58. Функции perror(), fseek() и ftell()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ioCjZgaUEyo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(59).jpg"></div>
+	<p class="video_item_title">#59. Функции fputs(), fgets() и fprintf(), fscanf()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Eq9xp5NBbSY&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(60).jpg"></div>
+	<p class="video_item_title">#60. Функции feof(), fflush(), setvbuf()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=_h5eHf65Igs&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(61).jpg"></div>
+	<p class="video_item_title">#61. Бинарный режим доступа. Функции fwrite() и fread()</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=QYZbN2g-Dxc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(62).jpg"></div>
+	<p class="video_item_title">С++. Начало</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=c7Nb0lJHVtU&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(63).jpg"></div>
+	<p class="video_item_title">#1. Первая программа на С++</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=mi1YqRF03IQ&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(64).jpg"></div>
+	<p class="video_item_title">#2. Ввод-вывод с помощью объектов cin и cout</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=mP0inCfi_9w&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(65).jpg"></div>
+	<p class="video_item_title">#3. Пространства имен (namespace)</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=IJEga9b25gQ&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(66).jpg"></div>
+	<p class="video_item_title">#4. Оператор using</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=riEH_BMy_QE&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(67).jpg"></div>
+	<p class="video_item_title">#5. Новые типы данных. Приведение типов указателей</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=rGNbbnUAX6k&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(68).jpg"></div>
+	<p class="video_item_title">#6. Инициализация переменных. Ключевые слова auto и decltype</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=QRghthGe6cI&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(69).jpg"></div>
+	<p class="video_item_title">#7. Ссылки. Константные ссылки</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=9KZq7ZN2-I0&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(70).jpg"></div>
+	<p class="video_item_title">#8. Объект-строка string. Операции с объектами класса string</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=wymgSfSteIY&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(71).jpg"></div>
+	<p class="video_item_title">#9. Файловые потоки. Открытие и закрытие файлов. Режимы доступа</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=oy5AbW4c3YM&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(72).jpg"></div>
+	<p class="video_item_title">#10. Чтение и запись данных в файл в текстовом режиме</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=rVibENiJZeQ&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(73).jpg"></div>
+	<p class="video_item_title">#11. Чтение и запись данных в файл в бинарном режиме</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=f9eb_54T4vY&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(74).jpg"></div>
+	<p class="video_item_title">#12. Перегрузка функций. Директива extern C</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=WdHMhTmhnfM&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(75).jpg"></div>
+	<p class="video_item_title">#13. Значения параметров функции по умолчанию</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=hZ0TGBD9Opg&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(76).jpg"></div>
+	<p class="video_item_title">#14. inline-функции</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=GPBY8KNGbhc&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(77).jpg"></div>
+	<p class="video_item_title">#15. Лямбда-выражения. Объявление и вызов</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=CFOIHo5aNTo&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(78).jpg"></div>
+	<p class="video_item_title">#16. Захват внешних значений в лямбда выражениях</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=YIE0tnADkHU&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(79).jpg"></div>
+	<p class="video_item_title">#17. Структуры в С++, как обновленный тип данных</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Bjqrje_g_Yk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(80).jpg"></div>
+	<p class="video_item_title">#18. Структуры. Режимы доступа. Сеттеры и геттеры</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=DINtoGSCEM4&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(81).jpg"></div>
+	<p class="video_item_title">#19. Структуры. Конструкторы и деструкторы</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=ECeoy6VjV4w&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(82).jpg"></div>
+	<p class="video_item_title">#20. Операторы new / delete и new [] / delete []</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Hxpke1vi0pM&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(83).jpg"></div>
+	<p class="video_item_title">#21. Особенности работы new и delete</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=AAM2S91jU4w&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(84).jpg"></div>
+	<p class="video_item_title">#22. Smart-указатели типа unique_ptr</p>
+	</a>
+</div>
+<div class="video_item">
+	<a href="https://www.youtube.com/watch?v=Lap-egF2Afk&amp;list=PLA0M1Bcd0w8w-mqVmBjt-2J8Z1gVmPZVz" target="_blank">
+	<div class="thumb"><img src="./Указатели. Приведение типов. Константа NULL _ Язык C для начинающих_files/default(85).jpg"></div>
+	<p class="video_item_title">#23. Smart-указатели типа shared_ptr</p>
+	</a>
+</div>
+
+	</div>
+</div></div>
+
+	<ul class="control"><li class="first"><a href="https://proproprogs.ru/c_base/c_ukazateli-proshche-prostogo">Предыдущая</a></li>
+
+<li class="last"><a href="https://proproprogs.ru/c_base/c_dolgozhdannaya-adresnaya-arifmetika">Следующая</a></li></ul><div class="clear"></div>
+
+</div></td></tr></tbody></table>
+</td></tr>
+<tr><td valign="top">
+	<div id="footer">
+		<p>© 2025 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено. Все тексты и изображения являются собственностью сайта</p>
+		<p><a href="https://proproprogs.ru/confidencial">Политика конфиденциальности</a> | <a href="https://proproprogs.ru/terms">Пользовательское соглашение</a>
+	</p></div>
+</td></tr></tbody></table>
+
+
+</body></html>
